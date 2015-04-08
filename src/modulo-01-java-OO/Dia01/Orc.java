@@ -11,6 +11,7 @@ public class Orc
     private String nome;
     private Status status = Status.VIVO;
     private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
 
     {
         //vida = 110;
@@ -204,6 +205,22 @@ public class Orc
      } while(i < numeroDeItens);
      
        return builder.toString();
+    }
+    
+    /**
+     * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
+     */
+    public void tentarSorte() {
+        
+        double numeroGerado = gerarNumero();
+        
+        if (numeroGerado == NUMERO_SORTE) {
+            for (ItemDoInventario item : this.itens) {
+                int novaQuantidadeItem = item.getQuantidade() + 1000;
+                item.setQuantidade(novaQuantidadeItem);
+            }
+        }
+        
     }
     
     private double gerarNumero() {

@@ -365,6 +365,38 @@ public class OrcTest
         // Assert
         assertEquals(descricoesEsperada, resultadoDescricoes);
     }
+    
+    @Test
+    public void orcTentarSorteAumenta1000UnidadesDosItens() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.setStatus(Status.DORMINDO);
+        urukhai.setExperiencia(3);
+        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
+        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
+        // Act
+        urukhai.tentarSorte();
+        // Assert
+        ItemDoInventario pocao = urukhai.getItens().get(0);
+        ItemDoInventario lanca = urukhai.getItens().get(1);
+        assertEquals(1003, pocao.getQuantidade());
+        assertEquals(1001, lanca.getQuantidade());
+    }
+    
+    @Test
+    public void orcTentarSorteNaoFazNada() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
+        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
+        // Act
+        urukhai.tentarSorte();
+        // Assert
+        ItemDoInventario pocao = urukhai.getItens().get(0);
+        ItemDoInventario lanca = urukhai.getItens().get(1);
+        assertEquals(3, pocao.getQuantidade());
+        assertEquals(1, lanca.getQuantidade());
+    }
 }
 
 
