@@ -1,9 +1,8 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.*;
 
 /**
  * A classe de teste OrcTest.
@@ -263,6 +262,68 @@ public class OrcTest
         
         assertEquals(vidaEsperada, orc.getVida());
         assertEquals(statusEsperado, orc.getStatus());
+    }
+    
+    @Test
+    public void quandoAdicionoAdagaAoInventario() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(adaga);
+        // Act
+        urukhai.adicionarItem(adaga);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert...
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+
+    @Test
+    public void quandoAdicionoAdagaEEscudoAoInventario() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(adaga);
+        inventarioEsperado.add(escudo);
+        // Act
+        urukhai.adicionarItem(adaga);
+        urukhai.adicionarItem(escudo);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+
+    @Test
+    public void quandoAdicionoAdagaAoInventarioEPercoAdaga() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        urukhai.adicionarItem(adaga);
+        // Act
+        urukhai.perderItem(adaga);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+
+    @Test
+    public void quandoAdicionoAdagaEEscudoAoInventarioEPercoEscudo() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(adaga);
+        urukhai.adicionarItem(adaga);
+        urukhai.adicionarItem(escudo);
+        // Act
+        urukhai.perderItem(escudo);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
 }
 
