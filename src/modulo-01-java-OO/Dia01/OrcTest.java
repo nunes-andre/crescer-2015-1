@@ -276,6 +276,7 @@ public class OrcTest
         ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
         // Assert...
         assertEquals(inventarioEsperado, inventarioObtido);
+        assertEquals(inventarioEsperado.get(0), inventarioObtido.get(0));
     }
 
     @Test
