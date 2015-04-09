@@ -223,6 +223,29 @@ public class Orc
         
     }
     
+    public ItemDoInventario getItemComMaiorQuantidade() {
+        
+        ItemDoInventario itemMaiorQuantidade = null;
+        
+        boolean temItens = !this.itens.isEmpty();       
+        if (temItens) {
+            itemMaiorQuantidade = this.itens.get(0);
+            
+            for (int i = 1; i < this.itens.size(); i++) {
+                ItemDoInventario itemAtual = this.itens.get(i);
+                boolean encontreiAMaiorQuantidade =
+                    itemAtual.getQuantidade() > itemMaiorQuantidade.getQuantidade();
+                
+                if (encontreiAMaiorQuantidade) {
+                    // atualizar a minha referência para o maior parcial
+                    itemMaiorQuantidade = itemAtual;
+                }
+            }
+        }
+        
+        return itemMaiorQuantidade;
+    }
+    
     private double gerarNumero() {
         
         double numeroGerado = 0.0;
