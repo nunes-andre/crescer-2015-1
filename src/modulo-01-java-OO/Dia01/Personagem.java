@@ -184,8 +184,10 @@ public class Personagem
      */
     protected void ordenarItens() {
         
-        /*for (int i = 0; i < this.itens.size(); i++) {
-            for (int j = 0; j < this.itens.size() - 1; j++) {
+        int numeroItens = this.itens.size();
+        
+        for (int i = 0; i < numeroItens; i++) {
+            for (int j = 0; j < numeroItens - 1; j++) {
                 ItemDoInventario itemAtual = this.itens.get(j);
                 ItemDoInventario proximo = this.itens.get(j + 1);
                 
