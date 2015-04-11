@@ -75,7 +75,7 @@ public class Personagem
         /*
          * Utilizando for tradicional         
         int numeroDeItens = this.itens.size();
-
+        
         for (int i = 0; i < numeroDeItens; i++) {
             ItemDoInventario itemAtual = this.itens.get(i);
             
@@ -88,13 +88,13 @@ public class Personagem
             );
         }
         */
-       
-       // C#
-       //foreach (ItemDoInventario item in this.itens) { }
-       
-       /*
+        
+        // C#
+        //foreach (ItemDoInventario item in this.itens) { }
+        
+        /*
         * Utilizando FOREACH!!
-       for (ItemDoInventario itemAtual : this.itens) {
+        for (ItemDoInventario itemAtual : this.itens) {
            int i = this.itens.indexOf(itemAtual);
            int numeroDeItens = this.itens.size();
            boolean éÚltimoÍndice = i == numeroDeItens - 1;
@@ -104,21 +104,21 @@ public class Personagem
                 itemAtual.getDescricao() :
                 itemAtual.getDescricao() + ","
             );
-       }
-       */
-      
-      /*
-       * JavaScript
-      for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
-      }
-      */
-      
-     /*
-      * WHILE (ENQUANTO)
-      int i = 0;
-      int numeroDeItens = this.itens.size();    
-
-      while (i < numeroDeItens) {
+        }
+        */
+        
+        /*
+        * JavaScript
+        for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
+        }
+        */
+        
+        /*
+        * WHILE (ENQUANTO)
+        int i = 0;
+        int numeroDeItens = this.itens.size();    
+        
+        while (i < numeroDeItens) {
           ItemDoInventario itemAtual = this.itens.get(i);
           boolean éÚltimoÍndice = i == numeroDeItens - 1;
            
@@ -129,26 +129,26 @@ public class Personagem
           );
           //
           i++;
-      }
-      */
+        }
+        */
      
-     int i = 0;
-     int numeroDeItens = this.itens.size();
-     do {
-         if (numeroDeItens > 0) {
-             ItemDoInventario itemAtual = this.itens.get(i);
-              boolean éÚltimoÍndice = i == numeroDeItens - 1;
-               
-              builder.append(
-                    éÚltimoÍndice ?
-                    itemAtual.getDescricao() :
-                    itemAtual.getDescricao() + ","
-              );
-         }
-         i++;
-     } while(i < numeroDeItens);
+         int i = 0;
+         int numeroDeItens = this.itens.size();
+         do {
+             if (numeroDeItens > 0) {
+                 ItemDoInventario itemAtual = this.itens.get(i);
+                  boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                   
+                  builder.append(
+                        éÚltimoÍndice ?
+                        itemAtual.getDescricao() :
+                        itemAtual.getDescricao() + ","
+                  );
+             }
+             i++;
+         } while(i < numeroDeItens);
      
-       return builder.toString();
+         return builder.toString();
     }
     
     protected ItemDoInventario getItemComMaiorQuantidade() {
@@ -174,7 +174,7 @@ public class Personagem
         return itemMaiorQuantidade;
         
         // C#
-        // return this.itens.Max(x => x.getQuantidade());
+        // return this.itens.Max(x => x.Quantidade);
     }
     
     /**
@@ -197,20 +197,21 @@ public class Personagem
                     this.itens.set(j + 1, itemAtual);
                 }
             }
-        }*/
+        }
         
-        Collections.sort(this.itens, new Comparator<ItemDoInventario>() {
+        // Java:
+        /*Collections.sort(this.itens, new Comparator<ItemDoInventario>() {
             public int compare(ItemDoInventario item, ItemDoInventario outroItem) {
                 return Integer.compare(item.getQuantidade(), outroItem.getQuantidade());
             }
-        });
+        });*/
         
         
         // C#:
-        // return this.itens.OrderBy(x => x.getQuantidade());
+        // return this.itens.OrderBy(x => x.Quantidade);
         
         // Ruby:
-        // this.itens.sort_by { |x| x.get_quantidade }
+        // itens.sort_by { |x| x.quantidade }
         
     }
 }
