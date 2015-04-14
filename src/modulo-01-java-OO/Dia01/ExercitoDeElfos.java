@@ -13,6 +13,11 @@ public class ExercitoDeElfos
         return this.exercito;
     }
     
+    /**
+     * Alista o elfo no exército para que seja utilizado em batalha.
+     * 
+     * @param elfo Elfo a ser alistado no exército. Deve ser apenas do tipo ElfoVerde ou ElfoNoturno
+     */
     public void alistar(Elfo elfo) {
         
         boolean podeAlistar = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
@@ -22,6 +27,12 @@ public class ExercitoDeElfos
         }   
     }
     
+    /**
+     * Busca um elfo no meio do exército, a partir do seu nome.
+     * 
+     * @param nome Nome do elfo para utilizar na busca.
+     * @return Elfo Resultado da busca pelo nome. Caso não encontre nada retorna null.
+     */
     public Elfo buscar(String nome) {
         return exercito.get(nome);
     }
