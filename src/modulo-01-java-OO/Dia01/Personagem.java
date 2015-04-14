@@ -12,7 +12,7 @@ import java.util.*;
 public class Personagem
 {
     protected Status status = Status.VIVO;
-    protected int vida;
+    protected double vida;
     protected String nome;
     protected int experiencia;
     protected ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
@@ -26,7 +26,7 @@ public class Personagem
         return status;
     }
     
-    protected int getVida() {
+    protected double getVida() {
         return vida;
     }
     
