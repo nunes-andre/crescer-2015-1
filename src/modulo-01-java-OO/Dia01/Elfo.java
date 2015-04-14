@@ -133,4 +133,16 @@ public class Elfo extends Personagem
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
     }
+    
+    /**
+     * Verifica se dois elfos são iguais.
+     * Critério atual: ter o mesmo nome.
+     * 
+     * @param outro Outro objeto elfo a ser comparado.
+     * @return boolean Verdadeiro caso sejam iguais. Falso caso contrário.
+     */
+    @Override
+    public boolean equals(Object outro) {
+        return ((Elfo)outro).getNome().equals(this.nome);
+    }
 }

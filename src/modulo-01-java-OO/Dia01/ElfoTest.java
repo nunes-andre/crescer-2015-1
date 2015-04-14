@@ -184,6 +184,32 @@ public class ElfoTest
     public void setUp() {
         Elfo.resetaQuantidadeDeElfos();
     }
+    
+    @Test
+    public void doisElfosComMesmoNomeSaoIguais() {
+        // Arrange
+        boolean esperado = true;
+        // Act
+        Elfo legolas = new Elfo("Legolas");
+        Elfo legolas2 = new Elfo("Legolas");
+        // Assert
+        assertEquals(esperado, legolas.equals(legolas2));
+    }
+    
+    @Test
+    public void doisElfosComNomesDiferentesNaoSaoIguais() {
+        // Arrange
+        boolean esperado = false;
+        // Act
+        Elfo legolas = new Elfo("Legolas");
+        Elfo legolas2 = new Elfo("Legolas II");
+        // Assert
+        assertEquals(esperado, legolas.equals(legolas2));
+    }
+    
+    
+    
+    
 }
 
 
